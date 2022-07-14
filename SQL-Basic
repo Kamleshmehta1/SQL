@@ -1,0 +1,134 @@
+-- CREATE TABLE student(
+--     student_id INT,
+--     namee VARCHAR(20),
+--     major VARCHAR(20),
+--     PRIMARY KEY(student_id)
+-- );
+-- creating table
+-- DESCRIBE student;
+
+-- DROP TABLE student;
+
+-- adding column to the table
+-- ALTER TABLE student ADD gpa DECIMAL(3,2);
+
+-- SELECT * FROM student;
+
+-- INSERT INTO student VALUES(2,'sonal','Software');
+
+-- INSERT INTO student(student_id,namee) VALUES(3,'bruhh');
+-- to store null in column-row
+
+-- constrains NOT NULL & UNIQUE
+-- CREATE TABLE student(
+--     student_id INT,
+--     name VARCHAR(20) NOT NULL,
+--     major VARCHAR(20) UNIQUE,
+--     PRIMARY KEY(student_id)
+-- );
+
+-- DESCRIBE TABLE student;
+
+-- DROP TABLE student;
+
+-- SELECT * FROM student;
+
+-- INSERT INTO student VALUES(1,"kamlesh","developer");
+-- INSERT INTO student VALUES(2,"kamlesh","creator");
+-- INSERT INTO student VALUES(3,"kamlesh","MERN");
+-- INSERT INTO student VALUES(4,"kamlesh","Full stack");
+
+
+-- undecided keyword to set default value if the data is not set there
+CREATE TABLE student(
+    student_id INT AUTO_INCREMENT,
+    name VARCHAR(20),
+    major VARCHAR(20) DEFAULT 'undecided',
+    PRIMARY KEY(student_id)
+);
+
+DESCRIBE TABLE student;
+
+DROP TABLE student;
+
+-- SELECT * FROM student;
+
+INSERT INTO student(name) VALUES("kamlesh");
+INSERT INTO student(name,major) VALUES("kamlesh","developer");
+
+-- update querry used to update specific row-column
+
+-- UPDATE student
+-- SET major = 'Software Developer'
+-- WHERE major='developer'
+
+UPDATE student
+SET major = 'full stack dev.'
+WHERE major='developer' OR major="Software Developer"
+
+UPDATE student
+SET name = "kamlesh mehta",major="MERN"
+WHERE student_id=1
+
+-- delete fromt the table
+
+DELETE FROM student
+WHERE major="undecided"
+
+SELECT * FROM student;
+
+DELETE FROM student
+WHERE student_id = 5
+
+DELETE FROM student;
+WHERE name = "kamlesh mehta" AND major="MERN"
+
+DROP TABLE student;
+
+-- sorts the name column alphabets lexicographically.
+
+SELECT student.name,student.major
+FROM student
+ORDER BY name;
+
+-- descending order student_id
+SELECT student.name,student.major
+FROM student
+ORDER BY student_id DESC;
+
+-- ascending order student_id
+SELECT student.name,student.major
+FROM student
+ORDER BY student_id ASC;
+
+INSERT INTO student(name,major) VALUES("a","biology");
+INSERT INTO student(name,major) VALUES("b","physics");
+
+SELECT *
+FROM student
+ORDER BY major,student_id;
+
+-- filter the table columns
+
+SELECT *
+FROM student
+WHERE major="biology";
+
+-- symbols we can use <,>,<=,>=,<>,AND,OR
+
+
+SELECT *
+FROM student
+WHERE student_id <=2;
+
+-- <> not equals to symbol in SQL
+
+SELECT *
+FROM student
+WHERE student_id <>4;
+
+SELECT *
+FROM student
+WHERE name IN("kamlesh","a");
+
+
